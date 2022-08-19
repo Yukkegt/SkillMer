@@ -1,0 +1,78 @@
+﻿@page "/profile"
+@inject HttpClient Http
+
+<h3>プロフィール</h3>
+
+<!-- This is the modal -->
+<div id="modal-close-default" uk-modal>
+    <div class="uk-modal-dialog uk-modal-body">
+        <button class="uk-modal-close-default uk-object-top-right" type="button" uk-close></button>
+        <button class="uk-button uk-button-secondary uk-margin-small-right">保存</button>
+
+        <h2 class="uk-modal-title">プロフィールを編集</h2>
+    </div>
+</div>
+
+<div class="uk-card uk-card-default">
+    <div class="uk-card-header">
+        <div class="uk-grid-small uk-flex-middle" uk-grid>
+            <div class="uk-width-auto">
+                @*未実装：ユーザーのアイコン*@
+                <img class="uk-border-circle" width="40" height="40" src="images/avatar.jpg">
+            </div>
+            <div class="uk-width-expand">
+                <h3 class="uk-card-title uk-margin-remove-bottom">@user.Name</h3>
+                @*未実装：ユーザーの部署と階級*@
+                @*<h3 class="uk-card-title uk-margin-remove-bottom"></h3>
+                <h3 class="uk-card-title uk-margin-remove-bottom"></h3>*@
+            </div>
+            <button class="uk-button uk-button-secondary uk-margin-small-right" type="button" uk-toggle="target: #modal-close-default">編集する</button>
+
+        </div>
+    </div>
+    
+    <div class="uk-card-body uk-margin-remove">        
+        @*未実装：自己紹介文の表示*@
+        <p>しがないC#書き</p>
+        @*<p>@user.Description</p>*@
+        <p class="uk-text-meta uk-margin-remove-top">登録日:@user.CreateAt</p>
+        <p class="uk-text-meta uk-margin-remove-top">最後の更新:@user.UpdateAt</p>
+    </div>
+    
+    <hr class="uk-heading-divider uk-margin-remove" />
+    
+    <div class="uk-card-body">
+        <h4 class="uk-card-title">スキル</h4>
+        
+        <div class="uk-child-width-1-2@s uk-grid-match" uk-grid>
+            @foreach (var skill in user.Skills)
+            {
+                <div>
+                    <div class="uk-card uk-card-default uk-card-hover uk-card-small uk-card-body">
+                        <h3 class="uk-card-title">@skill.Skill.SkillName</h3>
+                        <p>カテゴリ:@skill.Skill.Category</p>
+                        <p>登録日:@skill.Skill.CreateAt</p>
+                        <font size="40">
+                        <i class="devicon-amazonwebservices-plain-wordmark"></i>
+                        </font>
+                    </div>
+                </div>
+            }
+        </div>
+
+    </div>
+    
+    <div class="uk-card-footer">
+        <a href="#" class="uk-button uk-button-text">Read more</a>
+    </div>
+
+</div>
+
+@code {
+    private MUser? user;
+
+    protected override async Task OnInitializedAsync()
+    {
+        user = await Http.GetFromJsonAsync<MUser>("api/users/yukke");
+    }
+}

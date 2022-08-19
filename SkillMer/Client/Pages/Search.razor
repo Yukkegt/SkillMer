@@ -1,0 +1,41 @@
+﻿@page "/search"
+@inject HttpClient Http
+<h3>検索</h3>
+<div uk-filter="target: .js-filter">
+
+
+    @*カテゴリフィルターを作成*@
+    <ul class="uk-subnav uk-subnav-pill">
+        <li class="uk-active" uk-filter-control><a href="#">All</a></li>
+        @foreach (var category in skills.Select(x => x.Category).Distinct())
+        {
+            <li uk-filter-control=".@category"><a href="#">@category</a></li>
+        }
+    </ul>
+
+    @*スキル一覧を表示*@
+    <ul class="js-filter uk-child-width-1-1 uk-child-width-1-2@s uk-child-width-1-3@m uk-text-center" uk-grid>
+        @foreach (var skill in skills)
+        {
+            <li class="@skill.Category">
+                <div class="uk-card uk-card-default uk-card-hover uk-card-small uk-card-body uk-text-left">
+                    <h6 class="uk-card-title uk-margin-remove-bottom">@skill.SkillName</h6>
+                @*<div class="uk-card uk-card-default uk-card-body">@skill.SkillName</div>*@
+                <p class="uk-text-meta uk-margin-remove-top">Users:@skill.Users.Count()</p>
+                </div>
+            </li>
+
+        }
+    </ul>
+</div>
+@code {
+    private MSkill[]? skills;
+    //private MJob? jobs;
+
+    protected override async Task OnInitializedAsync()
+    {
+        skills = await Http.GetFromJsonAsync<MSkill[]>("api/skills");
+        //jobs = await Http.GetFromJsonAsync<MJob>("api/job");
+
+    }
+}

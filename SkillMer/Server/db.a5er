@@ -1,0 +1,239 @@
+﻿# A5:ER FORMAT:15
+# A5:ER ENCODING:UTF8
+# A5:ER Mk-1 Copyright © 2007 m.matsubara
+# A5:SQL Mk-2 Version 2.16.2 Copyright © 1997 - 2021 m.matsubara
+#  https://a5m2.mmatsubara.com
+
+[Manager]
+ProjectName=
+Author=
+MaxEntityRowShow=1000
+ReadOnlyRecommend=0
+Page=Main
+PageInfo="Main",2,"A3Landscape",$FFFFFF
+LogicalView=1
+DecodeDomain=0
+ViewModePageIndividually=1
+ViewMode=2
+ViewFormat=0
+UseNondependenceDashLine=0
+FontName=Tahoma
+FontSize=6
+PaperSize=A4Landscape
+HeaderLeft=
+HeaderCenter=
+HeaderRight=
+FooterLeft=
+FooterCenter=
+FooterRight=
+ShowPageoutRelation=1
+DefaultPkName=%0:s_PKC
+DefaultPkIndexName=%0:s_PKI
+DefaultIndexName=%0:s_IX%1:d
+DefaultFkName=%0:s_FK%1:d
+SqlSeparator=0
+UpperCaseKeyword=0
+ShowTag=1
+ShowCommonAttributes=0
+
+[Entity]
+PName=m_job
+LName=ジョブマスタ
+Comment=
+TableOption=
+Page=Main
+Left=100
+Top=100
+Field="ジョブID","JobId","INTEGER","NOT NULL",0,"","",$FFFFFFFF,""
+Field="カテゴリ","Category","TEXT","NOT NULL",,"","",$FFFFFFFF,""
+Field="名前","Name","TEXT","NOT NULL",,"","",$FFFFFFFF,""
+Field="削除フラグ","DeleteFlg","INTEGER","NOT NULL",,"","",$FFFFFFFF,""
+Field="作成日時","CreateAt","TEXT","NOT NULL",,"","",$FFFFFFFF,""
+Field="更新日時","UpdateAt","TEXT",,,"","",$FFFFFFFF,""
+Field="MUserUserId","MUserUserId","VARCHAR(15)",,,"","",$FFFFFFFF,""
+Field="TUsersJobJobId","TUsersJobJobId","INTEGER",,,"","",$FFFFFFFF,""
+Field="TUsersJobUserId","TUsersJobUserId","TEXT",,,"","",$FFFFFFFF,""
+Index=IX_m_job_TUsersJobUserId_TUsersJobJobId=0,TUsersJobUserId,TUsersJobJobId
+Index=IX_m_job_MUserUserId=0,MUserUserId
+EffectMode=None
+Color=$000000
+BkColor=$FFFFFF
+ModifiedDateTime=20220810223427
+Position="Main",100,100,225,229
+ZOrder=-1
+
+[Entity]
+PName=m_skill
+LName=スキルマスタ
+Comment=
+TableOption=
+Page=Main
+Left=1350
+Top=50
+Field="スキルID","SkillId","INTEGER","NOT NULL",0,"","",$FFFFFFFF,""
+Field="カテゴリ","Category","TEXT","NOT NULL",,"","",$FFFFFFFF,""
+Field="スキル名","SkillName","TEXT","NOT NULL",,"","",$FFFFFFFF,""
+Field="削除フラグ","DeleteFlg","INTEGER","NOT NULL",,"","",$FFFFFFFF,""
+Field="作成日時","CreateAt","TEXT","NOT NULL",,"","",$FFFFFFFF,""
+Field="更新日時","UpdateAt","TEXT",,,"","",$FFFFFFFF,""
+Field="MUserUserId","MUserUserId","VARCHAR(15)",,,"","",$FFFFFFFF,""
+Field="TUsersSkillSkillId","TUsersSkillSkillId","INTEGER",,,"","",$FFFFFFFF,""
+Field="TUsersSkillUserId","TUsersSkillUserId","TEXT",,,"","",$FFFFFFFF,""
+Index=IX_m_skill_TUsersSkillUserId_TUsersSkillSkillId=0,TUsersSkillUserId,TUsersSkillSkillId
+Index=IX_m_skill_MUserUserId=0,MUserUserId
+EffectMode=None
+Color=$000000
+BkColor=$FFFFFF
+ModifiedDateTime=20220810223231
+Position="Main",1350,50
+ZOrder=-2
+
+[Entity]
+PName=m_user
+LName=ユーザーマスタ
+Comment=
+TableOption=
+Page=Main
+Left=650
+Top=50
+Field="ユーザーID","UserId","VARCHAR(15)","NOT NULL",0,"","",$FFFFFFFF,""
+Field="名前","Name","VARCHAR(50)","NOT NULL",,"","",$FFFFFFFF,""
+Field="削除フラグ","DeleteFlg","INTEGER","NOT NULL",,"","",$FFFFFFFF,""
+Field="作成日時","CreateAt","TEXT","NOT NULL",,"","",$FFFFFFFF,""
+Field="更新日時","UpdateAt","TEXT",,,"","",$FFFFFFFF,""
+Field="TUsersJobJobId","TUsersJobJobId","INTEGER",,,"","",$FFFFFFFF,""
+Field="TUsersJobUserId","TUsersJobUserId","TEXT",,,"","",$FFFFFFFF,""
+Field="TUsersSkillSkillId","TUsersSkillSkillId","INTEGER",,,"","",$FFFFFFFF,""
+Field="TUsersSkillUserId","TUsersSkillUserId","TEXT",,,"","",$FFFFFFFF,""
+Index=IX_m_user_TUsersSkillUserId_TUsersSkillSkillId=0,TUsersSkillUserId,TUsersSkillSkillId
+Index=IX_m_user_TUsersJobUserId_TUsersJobJobId=0,TUsersJobUserId,TUsersJobJobId
+EffectMode=None
+Color=$000000
+BkColor=$FFFFFF
+ModifiedDateTime=20220810223415
+Position="Main",650,50
+ZOrder=-3
+
+[Entity]
+PName=t_usersJob
+LName=ユーザージョブトラン
+Comment=
+TableOption=
+Page=Main
+Left=400
+Top=550
+Field="ユーザーID","UserId","TEXT","NOT NULL",0,"","",$FFFFFFFF,""
+Field="ジョブID","JobId","INTEGER","NOT NULL",1,"","",$FFFFFFFF,""
+Field="削除フラグ","DeleteFlg","INTEGER","NOT NULL",,"","",$FFFFFFFF,""
+Field="作成日時","CreateAt","TEXT","NOT NULL",,"","",$FFFFFFFF,""
+Field="更新日時","UpdateAt","TEXT",,,"","",$FFFFFFFF,""
+EffectMode=None
+Color=$000000
+BkColor=$FFFFFF
+ModifiedDateTime=20220810223407
+Position="Main",400,550
+ZOrder=-4
+
+[Entity]
+PName=t_usersSkill
+LName=ユーザースキルトラン
+Comment=
+TableOption=
+Page=Main
+Left=1050
+Top=350
+Field="ユーザーID","UserId","TEXT","NOT NULL",0,"","",$FFFFFFFF,""
+Field="スキルID","SkillId","INTEGER","NOT NULL",1,"","",$FFFFFFFF,""
+Field="削除フラグ","DeleteFlg","INTEGER","NOT NULL",,"","",$FFFFFFFF,""
+Field="作成日時","CreateAt","TEXT","NOT NULL",,"","",$FFFFFFFF,""
+Field="更新日時","UpdateAt","TEXT",,,"","",$FFFFFFFF,""
+EffectMode=None
+Color=$000000
+BkColor=$FFFFFF
+ModifiedDateTime=20220810223354
+Position="Main",1050,350
+ZOrder=-5
+
+[Relation]
+Entity1=m_user
+Entity2=t_usersSkill
+RelationType1=2
+RelationType2=3
+Fields1=UserId
+Fields2=UserId
+Cardinarity1=
+Cardinarity2=
+Position="MAIN",0,629,9371,393,R,R,""
+Dependence=1
+Caption=
+PName=
+LineMode=0
+Bar1=63
+Bar2=937
+Bar3=39
+TermPos1=R
+TermPos2=R
+ZOrder=1
+
+[Relation]
+Entity1=m_user
+Entity2=t_usersJob
+RelationType1=2
+RelationType2=3
+Fields1=UserId
+Fields2=UserId
+Cardinarity1=
+Cardinarity2=
+Position="MAIN",0,629,7357,7490,R,R,""
+Dependence=1
+Caption=
+PName=
+LineMode=0
+Bar1=63
+Bar2=736
+Bar3=749
+TermPos1=R
+TermPos2=R
+ZOrder=2
+
+[Relation]
+Entity1=m_skill
+Entity2=t_usersSkill
+RelationType1=2
+RelationType2=3
+Fields1=SkillId
+Fields2=SkillId
+Cardinarity1=
+Cardinarity2=
+Position="MAIN",0,2293,7707,911,R,R,""
+Dependence=1
+Caption=
+PName=
+LineMode=0
+Bar1=229
+Bar2=771
+Bar3=91
+TermPos1=R
+TermPos2=R
+ZOrder=3
+
+[Relation]
+Entity1=m_job
+Entity2=t_usersJob
+RelationType1=2
+RelationType2=3
+Fields1=JobId
+Fields2=JobId
+Cardinarity1=
+Cardinarity2=
+Position="MAIN",0,1464,6849,3423,R,R,""
+Dependence=1
+Caption=
+PName=
+LineMode=0
+Bar1=146
+Bar2=685
+Bar3=342
+TermPos1=R
+TermPos2=R
+ZOrder=4

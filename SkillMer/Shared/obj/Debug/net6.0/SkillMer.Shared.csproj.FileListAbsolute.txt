@@ -1,0 +1,12 @@
+C:\Users\yukke\Documents\003_GitHub\SkillMer\SkillMer\Shared\bin\Debug\net6.0\SkillMer.Shared.deps.json
+C:\Users\yukke\Documents\003_GitHub\SkillMer\SkillMer\Shared\bin\Debug\net6.0\SkillMer.Shared.dll
+C:\Users\yukke\Documents\003_GitHub\SkillMer\SkillMer\Shared\bin\Debug\net6.0\SkillMer.Shared.pdb
+C:\Users\yukke\Documents\003_GitHub\SkillMer\SkillMer\Shared\obj\Debug\net6.0\SkillMer.Shared.csproj.AssemblyReference.cache
+C:\Users\yukke\Documents\003_GitHub\SkillMer\SkillMer\Shared\obj\Debug\net6.0\SkillMer.Shared.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\yukke\Documents\003_GitHub\SkillMer\SkillMer\Shared\obj\Debug\net6.0\SkillMer.Shared.AssemblyInfoInputs.cache
+C:\Users\yukke\Documents\003_GitHub\SkillMer\SkillMer\Shared\obj\Debug\net6.0\SkillMer.Shared.AssemblyInfo.cs
+C:\Users\yukke\Documents\003_GitHub\SkillMer\SkillMer\Shared\obj\Debug\net6.0\SkillMer.Shared.csproj.CoreCompileInputs.cache
+C:\Users\yukke\Documents\003_GitHub\SkillMer\SkillMer\Shared\obj\Debug\net6.0\SkillMer.Shared.dll
+C:\Users\yukke\Documents\003_GitHub\SkillMer\SkillMer\Shared\obj\Debug\net6.0\refint\SkillMer.Shared.dll
+C:\Users\yukke\Documents\003_GitHub\SkillMer\SkillMer\Shared\obj\Debug\net6.0\SkillMer.Shared.pdb
+C:\Users\yukke\Documents\003_GitHub\SkillMer\SkillMer\Shared\obj\Debug\net6.0\ref\SkillMer.Shared.dll
